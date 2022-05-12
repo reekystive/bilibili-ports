@@ -1,9 +1,24 @@
 # bilibili-ports
 
-哔哩哔哩官方客户端移植
+哔哩哔哩官方客户端移植，支持 macOS，Linux，Windows，三平台均支持 x64 和 arm64。
 
-图标来自于 [macOSicons](https://macosicons.com/)，作者
-[@Mashiro](https://macosicons.com/#/u/Mashiro)
+该移植基于哔哩哔哩官方 Windows 客户端。
+
+图标来自于 [macOSicons](https://macosicons.com/)，作者 [@Mashiro](https://macosicons.com/#/u/Mashiro)
+
+## 截图
+
+### macOS
+
+<img width="1290" alt="Screen Shot" src="https://user-images.githubusercontent.com/26853900/168146040-0777a5ae-b5c2-454f-9a8f-0e48003e3feb.png">
+
+### Linux
+
+<img width="1171" alt="Screen Shot" src="https://user-images.githubusercontent.com/26853900/168148702-e489ec7e-ae90-473a-8720-25edac306b98.png">
+
+### Windows
+
+<img width="1183" alt="Screen Shot" src="https://user-images.githubusercontent.com/26853900/168153830-8f65a542-2e2a-433e-9870-a445401be977.png">
 
 ## 在 macOS 上构建
 
