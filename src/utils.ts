@@ -1,6 +1,7 @@
 import shell from 'shelljs';
 import yaml from 'js-yaml';
 import axios from 'axios';
+import fs from 'fs';
 
 async function getVersion() {
     const url = 'https://api.bilibili.com/x/elec-frontend/update/latest.yml';
@@ -33,4 +34,29 @@ function extractInstaller() {
     console.log('Saved to res/app.asar');
 }
 
-export { getVersion, downloadInstaller, extractInstaller };
+function renameToLower() {
+    const files = fs.readdirSync('out/');
+    for (const file of files) {
+        shell.exec(`mv out/${file} out/${file.toLowerCase()}`)
+    }
+    console.log('Renamed to lowercase');
+}
+
+function packToZip() {
+    const files = fs.readdirSync('out/');
+    shell.cd('out');
+    for (const file of files) {
+        shell.exec(`zip -r ${file}.zip ${file}`)
+        shell.exec(`rm -r ${file}`)
+    }
+    shell.cd('..');
+    console.log('Packed to zip');
+}
+
+export {
+    getVersion,
+    downloadInstaller,
+    extractInstaller,
+    renameToLower,
+    packToZip
+};

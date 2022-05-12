@@ -30,6 +30,8 @@ $ npm run build
 
 构建产物在 out 文件夹中。
 
+在 macOS 和 Linux 上进行 Windows 平台的构建需要安装 Wine。
+
 ## Electron 镜像
 
 如果 Build 时 Electron 下载过慢，可以执行

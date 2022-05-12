@@ -1,6 +1,6 @@
 import electronPackager from 'electron-packager'
 import os from 'os'
-import { getVersion, downloadInstaller, extractInstaller } from './utils'
+import { getVersion, downloadInstaller, extractInstaller, renameToLower, packToZip } from './utils'
 
 async function build() {
     const latestVersion = await getVersion();
@@ -22,8 +22,8 @@ async function build() {
         name: 'Bilibili',
         icon: 'res/icon',
         executableName: 'Bilibili',
-        platform: platform,
-        arch: arch,
+        platform: ['darwin', 'linux', 'win32'],
+        arch: ['x64', 'arm64'],
         appVersion: latestVersion,
         overwrite: true,
         prebuiltAsar: 'res/app.asar',
@@ -33,6 +33,8 @@ async function build() {
         for (let item of res) {
             console.log(item)
         }
+        renameToLower();
+        packToZip();
     })
 }
 
