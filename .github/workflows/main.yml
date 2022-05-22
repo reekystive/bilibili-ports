@@ -9,19 +9,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v3.2.0
         with:
           node-version: '16.x'
 
-      - name: Debug action
-        uses: hmarr/debug-action@v2.0.1
-      
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
+      - name: Install wine
+        run: sudo apt update && sudo apt install -y wine64
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get latest version
+        run: npx ts-node src/cli.ts get-version
+
+      - name: Build
+        run: npm run build
+
+#       - name: Setup tmate session
+#         uses: mxschmitt/action-tmate@v1
