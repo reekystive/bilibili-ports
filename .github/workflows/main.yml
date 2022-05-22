@@ -19,6 +19,9 @@ jobs:
 
       - name: Debug action
         uses: hmarr/debug-action@v2.0.1
+      
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
 
       - name: Run a one-line script
         run: echo Hello, world!
